@@ -1,0 +1,120 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_getHello
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /v1/items/all:
+    get:
+      operationId: ItemController_viewAllItems
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - items
+  /v1/items/{id}:
+    delete:
+      operationId: ItemController_deleteItemById
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - items
+    patch:
+      operationId: ItemController_updateItems
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateItemDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - items
+  /v1/items:
+    post:
+      operationId: ItemController_createItems
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateItemDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - items
+  /order:
+    post:
+      operationId: UserController_createOrder
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - user-order
+  /v1/pricing:
+    post:
+      operationId: PricingController_createPricing
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePricingDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - pricing
+  /v1/pricing/{id}:
+    patch:
+      operationId: PricingController_updatePricing
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePricingDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - pricing
+    delete:
+      operationId: PricingController_deletePricing
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - pricing
+info:
+  title: grocery
+  description: The grocery API description
+  version: '1.0'
+  contact: {}
+tags:
+  - name: grocery
+    description: ''
+servers: []
+components:
+  schemas:
+    CreateItemDto:
+      type: object
+      properties: {}
+    CreatePricingDto:
+      type: object
+      properties: {}
